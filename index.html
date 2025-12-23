@@ -1,11 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ML House Price Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML House Price Prediction Demo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>ML House Price Prediction Demo</h1>
-    <p>This site will host the public demo of my machine learning project.</p>
+    <header>
+        <h1>House Price Prediction Demo</h1>
+        <p>A simple machine learning project demonstrating end‑to‑end model training and deployment.</p>
+    </header>
+
+    <section id="about">
+        <h2>About This Project</h2>
+        <p>
+            This project showcases a complete machine learning workflow built from scratch:
+        </p>
+        <ul>
+            <li>Understanding and preparing a dataset of house sizes and prices</li>
+            <li>Implementing a linear regression model</li>
+            <li>Training the model to learn the relationship between size and price</li>
+            <li>Deploying the trained model using an API</li>
+            <li>Building a public webpage that interacts with the API</li>
+        </ul>
+        <p>
+            The goal is to demonstrate how a simple idea can be turned into a fully deployed, interactive ML application.
+            This page serves as the public interface where you can test the model in real time.
+        </p>
+    </section>
+
+    <section id="workflow">
+        <h2>Project Workflow</h2>
+    
+        <p>
+            This demonstration is built using a very small dataset of six properties. 
+            Each entry contains two values: the size of the house (in square feet) and its selling price. 
+            The dataset used to train the model is shown below:
+        </p>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Size (sq ft)</th>
+                    <th>Price ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>850</td><td>180000</td></tr>
+                <tr><td>2</td><td>900</td><td>190000</td></tr>
+                <tr><td>3</td><td>1200</td><td>240000</td></tr>
+                <tr><td>4</td><td>1500</td><td>310000</td></tr>
+                <tr><td>5</td><td>1700</td><td>350000</td></tr>
+                <tr><td>6</td><td>2000</td><td>400000</td></tr>
+            </tbody>
+        </table>
+    
+        <p>
+            Because this dataset is small and contains only one variable (house size), 
+            a <strong>linear regression model</strong> is an appropriate choice. 
+            Linear regression works well when the relationship between variables is simple and roughly linear.
+        </p>
+    
+        <p>
+            In real-world scenarios, datasets are much larger and include many more features 
+            such as number of bedrooms, location, age of the property, and market conditions. 
+            Larger and more complex datasets often require more advanced models 
+            (e.g., decision trees, random forests, gradient boosting, or neural networks). 
+            Generally, <strong>the more data you have, the more accurate and reliable the model becomes</strong>.
+        </p>
+    
+        <p>
+            During training, the model calculates how strongly the house size influences the price. 
+            These learned values are called <strong>weights</strong>. 
+            Once training is complete, the weights are saved and used by the API.
+        </p>
+    
+        <p>
+            The API loads the trained weights and uses them to predict the price of a house 
+            based on a size value provided by the user. 
+            This webpage connects to that API: when you enter a house size below, 
+            the API returns the predicted price for that unseen input.
+        </p>
+    </section>
+    <section id="tech">
+        <h2>Technologies Used</h2>
+        <ul>
+            <li><strong>Python</strong> — model implementation and training</li>
+            <li><strong>NumPy</strong> — numerical operations</li>
+            <li><strong>FastAPI</strong> — serving predictions via an API</li>
+            <li><strong>GitHub Pages</strong> — hosting this webpage</li>
+            <li><strong>JavaScript</strong> — connecting the frontend to the API</li>
+        </ul>
+    </section>
+
+    <section id="demo">
+        <h2>Try the Model</h2>
+
+        <label for="size-input">Enter house size in sq ft (e.g., 900):</label>
+        <input type="number" id="size-input" placeholder="e.g., 900">
+
+        <button id="predict-btn">Predict Price</button>
+
+        <div id="result"></div>
+    </section>
+
+    <footer>
+        <p>Created by Jose • <a href="https://www.linkedin.com/in/jose-guzman-86995340/">LinkedIn</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
